@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("slippi-clip-collector")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c08270b23f564c3967f21c9fb7ce56cfd405047a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20605e130950131415ca4156aa48df047d566c72")]
 [assembly: System.Reflection.AssemblyProductAttribute("slippi-clip-collector")]
 [assembly: System.Reflection.AssemblyTitleAttribute("slippi-clip-collector")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

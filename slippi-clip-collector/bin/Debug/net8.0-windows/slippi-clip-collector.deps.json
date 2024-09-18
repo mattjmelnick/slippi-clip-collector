@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "slippi-clip-collector/1.0.0": {
+        "runtime": {
+          "slippi-clip-collector.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "slippi-clip-collector/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
