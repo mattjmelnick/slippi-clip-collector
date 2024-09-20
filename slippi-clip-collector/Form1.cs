@@ -25,6 +25,8 @@ namespace slippi_clip_collector
                     textBox1.Text = replaysFolderPath;
                 }
             }
+
+            FillListView(replaysFolderPath, listView1);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,6 +40,21 @@ namespace slippi_clip_collector
                 }
             }
 
+            FillListView(clipsFolderPath, listView2);
+        }
+
+        private void FillListView(string folderPath, ListView listView)
+        {
+            var files = new DirectoryInfo(folderPath).GetFiles()
+                .OrderByDescending(f => f.LastWriteTime)
+                .ToList();
+
+            foreach (var file in files)
+            {
+                var item = new ListViewItem(file.Name);
+                item.SubItems.Add(file.LastWriteTime.ToString());
+                listView.Items.Add(item); 
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

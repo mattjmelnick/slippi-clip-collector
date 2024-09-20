@@ -34,12 +34,18 @@
             button4 = new Button();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            listBox1 = new ListBox();
-            listBox2 = new ListBox();
             button5 = new Button();
             button6 = new Button();
             label1 = new Label();
             label2 = new Label();
+            listView1 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            listView2 = new ListView();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -101,22 +107,6 @@
             textBox2.TabIndex = 4;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(44, 105);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(600, 144);
-            listBox1.TabIndex = 5;
-            // 
-            // listBox2
-            // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(44, 380);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(600, 144);
-            listBox2.TabIndex = 5;
-            // 
             // button5
             // 
             button5.Location = new Point(44, 255);
@@ -153,17 +143,81 @@
             label2.TabIndex = 7;
             label2.Text = "10 Files Deleted";
             // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.Location = new Point(44, 105);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(600, 144);
+            listView1.TabIndex = 8;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "File Name";
+            columnHeader1.Width = 400;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Date Modified";
+            columnHeader2.Width = 517;
+            // 
+            // listView2
+            // 
+            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader4 });
+            listView2.FullRowSelect = true;
+            listView2.GridLines = true;
+            listView2.Location = new Point(44, 380);
+            listView2.Name = "listView2";
+            listView2.Size = new Size(600, 144);
+            listView2.TabIndex = 8;
+            listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = View.Details;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "File Name";
+            columnHeader3.Width = 400;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Date Modified";
+            columnHeader4.Width = 517;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(127, 259);
+            label3.Name = "label3";
+            label3.Size = new Size(61, 20);
+            label3.TabIndex = 9;
+            label3.Text = "Files: 10";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(127, 534);
+            label4.Name = "label4";
+            label4.Size = new Size(61, 20);
+            label4.TabIndex = 9;
+            label4.Text = "Files: 10";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(696, 692);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(listView2);
+            Controls.Add(listView1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button6);
             Controls.Add(button5);
-            Controls.Add(listBox2);
-            Controls.Add(listBox1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(button4);
@@ -186,11 +240,17 @@
         private Button button4;
         private TextBox textBox1;
         private TextBox textBox2;
-        private ListBox listBox1;
-        private ListBox listBox2;
         private Button button5;
         private Button button6;
         private Label label1;
         private Label label2;
+        private ListView listView1;
+        private ListView listView2;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private Label label3;
+        private Label label4;
     }
 }
