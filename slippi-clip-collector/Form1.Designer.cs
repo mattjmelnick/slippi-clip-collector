@@ -41,9 +41,11 @@
             listView1 = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
-            listView2 = new ListView();
             columnHeader3 = new ColumnHeader();
+            listView2 = new ListView();
             columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
             label3 = new Label();
             label4 = new Label();
             SuspendLayout();
@@ -105,7 +107,6 @@
             textBox2.ReadOnly = true;
             textBox2.Size = new Size(393, 31);
             textBox2.TabIndex = 4;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // button5
             // 
@@ -145,7 +146,7 @@
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
             listView1.Location = new Point(44, 105);
@@ -158,16 +159,21 @@
             // columnHeader1
             // 
             columnHeader1.Text = "File Name";
-            columnHeader1.Width = 400;
+            columnHeader1.Width = 300;
             // 
             // columnHeader2
             // 
             columnHeader2.Text = "Date Modified";
-            columnHeader2.Width = 517;
+            columnHeader2.Width = 200;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "File Size";
+            columnHeader3.Width = 96;
             // 
             // listView2
             // 
-            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader4 });
+            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader4, columnHeader5, columnHeader6 });
             listView2.FullRowSelect = true;
             listView2.GridLines = true;
             listView2.Location = new Point(44, 380);
@@ -177,33 +183,38 @@
             listView2.UseCompatibleStateImageBehavior = false;
             listView2.View = View.Details;
             // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "File Name";
-            columnHeader3.Width = 400;
-            // 
             // columnHeader4
             // 
-            columnHeader4.Text = "Date Modified";
-            columnHeader4.Width = 517;
+            columnHeader4.Text = "File Name";
+            columnHeader4.Width = 300;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Date Modified";
+            columnHeader5.Width = 200;
+            // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "File Size";
+            columnHeader6.Width = 96;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(127, 259);
             label3.Name = "label3";
-            label3.Size = new Size(61, 20);
+            label3.Size = new Size(41, 20);
             label3.TabIndex = 9;
-            label3.Text = "Files: 10";
+            label3.Text = "Files:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(127, 534);
             label4.Name = "label4";
-            label4.Size = new Size(61, 20);
+            label4.Size = new Size(41, 20);
             label4.TabIndex = 9;
-            label4.Text = "Files: 10";
+            label4.Text = "Files:";
             // 
             // Form1
             // 
@@ -248,9 +259,11 @@
         private ListView listView2;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
         private Label label3;
         private Label label4;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader6;
     }
 }
