@@ -14,14 +14,14 @@ namespace slippi_clip_collector
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ReplaysFolderButton_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
                     replaysFolderPath = folderBrowserDialog.SelectedPath;
-                    textBox1.Text = replaysFolderPath;
+                    replaysPathTextBox.Text = replaysFolderPath;
                 }
                 else
                 {
@@ -29,24 +29,24 @@ namespace slippi_clip_collector
                 }
             }
 
-            foreach (ListViewItem item in listView1.Items)
+            foreach (ListViewItem item in replaysListView.Items)
             {
-                listView1.Items.Remove(item);
+                replaysListView.Items.Remove(item);
             }
 
-            FillListView(replaysFolderPath, listView1);
+            FillListView(replaysFolderPath, replaysListView);
             replaysFolderCount = NumberOfFiles(replaysFolderPath);
-            label3.Text = $"Files: {replaysFolderCount.ToString()}";
+            replaysCountLabel.Text = $"Files: {replaysFolderCount.ToString()}";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ClipsFolderButton_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
                     clipsFolderPath = folderBrowserDialog.SelectedPath;
-                    textBox2.Text = clipsFolderPath;
+                    clipsPathTextBox.Text = clipsFolderPath;
                 }
                 else
                 {
@@ -54,17 +54,17 @@ namespace slippi_clip_collector
                 }
             }
 
-            foreach (ListViewItem item in listView2.Items)
+            foreach (ListViewItem item in clipsListView.Items)
             {
-                listView2.Items.Remove(item);
+                clipsListView.Items.Remove(item);
             }
 
-            FillListView(clipsFolderPath, listView2);
+            FillListView(clipsFolderPath, clipsListView);
             clipsFolderCount = NumberOfFiles(clipsFolderPath);
-            label4.Text = $"Files: {clipsFolderCount.ToString()}";
+            clipsCountLabel.Text = $"Files: {clipsFolderCount.ToString()}";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void SaveFileButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(replaysFolderPath) || (string.IsNullOrEmpty(clipsFolderPath)))
             {
@@ -76,12 +76,12 @@ namespace slippi_clip_collector
             mostRecentFile.MoveTo(destFile);
 
             savedFilesCount++;
-            label1.Text = $"{savedFilesCount.ToString()} Files Saved";
-            RefreshListView(listView1, replaysFolderPath, replaysFolderCount, label3);
-            RefreshListView(listView2, clipsFolderPath, clipsFolderCount, label4);
+            filesMovedLabel.Text = $"{savedFilesCount.ToString()} Files Saved";
+            RefreshListView(replaysListView, replaysFolderPath, replaysFolderCount, replaysCountLabel);
+            RefreshListView(clipsListView, clipsFolderPath, clipsFolderCount, clipsCountLabel);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void DeleteFileButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(replaysFolderPath) || (string.IsNullOrEmpty(clipsFolderPath)))
             {
@@ -93,18 +93,18 @@ namespace slippi_clip_collector
             File.Delete(deleteFilePath);
 
             deletedFilesCount++;
-            label2.Text = $"{deletedFilesCount.ToString()} Files Deleted";
-            RefreshListView(listView1, replaysFolderPath, replaysFolderCount, label3);
+            filesDeletedLabel.Text = $"{deletedFilesCount.ToString()} Files Deleted";
+            RefreshListView(replaysListView, replaysFolderPath, replaysFolderCount, replaysCountLabel);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void RefreshReplaysButton_Click(object sender, EventArgs e)
         {
-            RefreshListView(listView1, replaysFolderPath, replaysFolderCount, label3);
+            RefreshListView(replaysListView, replaysFolderPath, replaysFolderCount, replaysCountLabel);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void RefreshClipsButton_Click(object sender, EventArgs e)
         {
-            RefreshListView(listView2, clipsFolderPath, clipsFolderCount, label4);
+            RefreshListView(clipsListView, clipsFolderPath, clipsFolderCount, clipsCountLabel);
         }
 
         private void FillListView(string folderPath, ListView listView)

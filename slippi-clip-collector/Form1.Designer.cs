@@ -28,215 +28,215 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button5 = new Button();
-            button6 = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            listView2 = new ListView();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
-            label3 = new Label();
-            label4 = new Label();
+            replaysFolderButton = new Button();
+            clipsFolderButton = new Button();
+            refreshReplaysButton = new Button();
+            refreshClipsButton = new Button();
+            saveFileButton = new Button();
+            deleteFileButton = new Button();
+            replaysPathTextBox = new TextBox();
+            clipsPathTextBox = new TextBox();
+            replaysCountLabel = new Label();
+            clipsCountLabel = new Label();
+            filesMovedLabel = new Label();
+            filesDeletedLabel = new Label();
+            replaysListView = new ListView();
+            replaysFileName = new ColumnHeader();
+            replaysDateModified = new ColumnHeader();
+            replaysFileSize = new ColumnHeader();
+            clipsListView = new ListView();
+            clipsFileName = new ColumnHeader();
+            clipsDateModified = new ColumnHeader();
+            clipsFileSize = new ColumnHeader();
             SuspendLayout();
             // 
-            // button1
+            // replaysFolderButton
             // 
-            button1.Location = new Point(48, 34);
-            button1.Name = "button1";
-            button1.Size = new Size(173, 66);
-            button1.TabIndex = 0;
-            button1.Text = "Select Replays Folder";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            replaysFolderButton.Location = new Point(48, 34);
+            replaysFolderButton.Name = "replaysFolderButton";
+            replaysFolderButton.Size = new Size(173, 66);
+            replaysFolderButton.TabIndex = 0;
+            replaysFolderButton.Text = "Select Replays Folder";
+            replaysFolderButton.UseVisualStyleBackColor = true;
+            replaysFolderButton.Click += ReplaysFolderButton_Click;
             // 
-            // button2
+            // clipsFolderButton
             // 
-            button2.Location = new Point(48, 309);
-            button2.Name = "button2";
-            button2.Size = new Size(173, 66);
-            button2.TabIndex = 1;
-            button2.Text = "Select Clips Folder";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            clipsFolderButton.Location = new Point(48, 309);
+            clipsFolderButton.Name = "clipsFolderButton";
+            clipsFolderButton.Size = new Size(173, 66);
+            clipsFolderButton.TabIndex = 1;
+            clipsFolderButton.Text = "Select Clips Folder";
+            clipsFolderButton.UseVisualStyleBackColor = true;
+            clipsFolderButton.Click += ClipsFolderButton_Click;
             // 
-            // button3
+            // refreshReplaysButton
             // 
-            button3.Location = new Point(88, 582);
-            button3.Name = "button3";
-            button3.Size = new Size(137, 53);
-            button3.TabIndex = 2;
-            button3.Text = "Save";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            refreshReplaysButton.Location = new Point(48, 256);
+            refreshReplaysButton.Name = "refreshReplaysButton";
+            refreshReplaysButton.Size = new Size(67, 29);
+            refreshReplaysButton.TabIndex = 6;
+            refreshReplaysButton.Text = "Refresh";
+            refreshReplaysButton.UseVisualStyleBackColor = true;
+            refreshReplaysButton.Click += RefreshReplaysButton_Click;
             // 
-            // button4
+            // refreshClipsButton
             // 
-            button4.Location = new Point(471, 582);
-            button4.Name = "button4";
-            button4.Size = new Size(137, 53);
-            button4.TabIndex = 3;
-            button4.Text = "Delete";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            refreshClipsButton.Location = new Point(48, 531);
+            refreshClipsButton.Name = "refreshClipsButton";
+            refreshClipsButton.Size = new Size(67, 29);
+            refreshClipsButton.TabIndex = 6;
+            refreshClipsButton.Text = "Refresh";
+            refreshClipsButton.UseVisualStyleBackColor = true;
+            refreshClipsButton.Click += RefreshClipsButton_Click;
             // 
-            // textBox1
+            // saveFileButton
             // 
-            textBox1.BackColor = SystemColors.ControlLightLight;
-            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(255, 50);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(393, 31);
-            textBox1.TabIndex = 4;
+            saveFileButton.Location = new Point(88, 582);
+            saveFileButton.Name = "saveFileButton";
+            saveFileButton.Size = new Size(137, 53);
+            saveFileButton.TabIndex = 2;
+            saveFileButton.Text = "Save";
+            saveFileButton.UseVisualStyleBackColor = true;
+            saveFileButton.Click += SaveFileButton_Click;
             // 
-            // textBox2
+            // deleteFileButton
             // 
-            textBox2.BackColor = SystemColors.ControlLightLight;
-            textBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(255, 325);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(393, 31);
-            textBox2.TabIndex = 4;
+            deleteFileButton.Location = new Point(471, 582);
+            deleteFileButton.Name = "deleteFileButton";
+            deleteFileButton.Size = new Size(137, 53);
+            deleteFileButton.TabIndex = 3;
+            deleteFileButton.Text = "Delete";
+            deleteFileButton.UseVisualStyleBackColor = true;
+            deleteFileButton.Click += DeleteFileButton_Click;
             // 
-            // button5
+            // replaysPathTextBox
             // 
-            button5.Location = new Point(48, 256);
-            button5.Name = "button5";
-            button5.Size = new Size(67, 29);
-            button5.TabIndex = 6;
-            button5.Text = "Refresh";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            replaysPathTextBox.BackColor = SystemColors.ControlLightLight;
+            replaysPathTextBox.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            replaysPathTextBox.Location = new Point(255, 50);
+            replaysPathTextBox.Name = "replaysPathTextBox";
+            replaysPathTextBox.ReadOnly = true;
+            replaysPathTextBox.Size = new Size(393, 31);
+            replaysPathTextBox.TabIndex = 4;
             // 
-            // button6
+            // clipsPathTextBox
             // 
-            button6.Location = new Point(48, 531);
-            button6.Name = "button6";
-            button6.Size = new Size(67, 29);
-            button6.TabIndex = 6;
-            button6.Text = "Refresh";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            clipsPathTextBox.BackColor = SystemColors.ControlLightLight;
+            clipsPathTextBox.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            clipsPathTextBox.Location = new Point(255, 325);
+            clipsPathTextBox.Name = "clipsPathTextBox";
+            clipsPathTextBox.ReadOnly = true;
+            clipsPathTextBox.Size = new Size(393, 31);
+            clipsPathTextBox.TabIndex = 4;
             // 
-            // label1
+            // replaysCountLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(105, 638);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 20);
-            label1.TabIndex = 7;
+            replaysCountLabel.AutoSize = true;
+            replaysCountLabel.Location = new Point(131, 260);
+            replaysCountLabel.Name = "replaysCountLabel";
+            replaysCountLabel.Size = new Size(41, 20);
+            replaysCountLabel.TabIndex = 9;
+            replaysCountLabel.Text = "Files:";
             // 
-            // label2
+            // clipsCountLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(482, 638);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 20);
-            label2.TabIndex = 7;
+            clipsCountLabel.AutoSize = true;
+            clipsCountLabel.Location = new Point(131, 535);
+            clipsCountLabel.Name = "clipsCountLabel";
+            clipsCountLabel.Size = new Size(41, 20);
+            clipsCountLabel.TabIndex = 9;
+            clipsCountLabel.Text = "Files:";
             // 
-            // listView1
+            // filesMovedLabel
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(48, 106);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(600, 144);
-            listView1.TabIndex = 8;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            filesMovedLabel.AutoSize = true;
+            filesMovedLabel.Location = new Point(105, 638);
+            filesMovedLabel.Name = "filesMovedLabel";
+            filesMovedLabel.Size = new Size(0, 20);
+            filesMovedLabel.TabIndex = 7;
             // 
-            // columnHeader1
+            // filesDeletedLabel
             // 
-            columnHeader1.Text = "File Name";
-            columnHeader1.Width = 300;
+            filesDeletedLabel.AutoSize = true;
+            filesDeletedLabel.Location = new Point(482, 638);
+            filesDeletedLabel.Name = "filesDeletedLabel";
+            filesDeletedLabel.Size = new Size(0, 20);
+            filesDeletedLabel.TabIndex = 7;
             // 
-            // columnHeader2
+            // replaysListView
             // 
-            columnHeader2.Text = "Date Modified";
-            columnHeader2.Width = 200;
+            replaysListView.Columns.AddRange(new ColumnHeader[] { replaysFileName, replaysDateModified, replaysFileSize });
+            replaysListView.FullRowSelect = true;
+            replaysListView.GridLines = true;
+            replaysListView.Location = new Point(48, 106);
+            replaysListView.Name = "replaysListView";
+            replaysListView.Size = new Size(600, 144);
+            replaysListView.TabIndex = 8;
+            replaysListView.UseCompatibleStateImageBehavior = false;
+            replaysListView.View = View.Details;
             // 
-            // columnHeader3
+            // replaysFileName
             // 
-            columnHeader3.Text = "File Size";
-            columnHeader3.Width = 96;
+            replaysFileName.Text = "File Name";
+            replaysFileName.Width = 300;
             // 
-            // listView2
+            // replaysDateModified
             // 
-            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader4, columnHeader5, columnHeader6 });
-            listView2.FullRowSelect = true;
-            listView2.GridLines = true;
-            listView2.Location = new Point(48, 381);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(600, 144);
-            listView2.TabIndex = 8;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
+            replaysDateModified.Text = "Date Modified";
+            replaysDateModified.Width = 200;
             // 
-            // columnHeader4
+            // replaysFileSize
             // 
-            columnHeader4.Text = "File Name";
-            columnHeader4.Width = 300;
+            replaysFileSize.Text = "File Size";
+            replaysFileSize.Width = 96;
             // 
-            // columnHeader5
+            // clipsListView
             // 
-            columnHeader5.Text = "Date Modified";
-            columnHeader5.Width = 200;
+            clipsListView.Columns.AddRange(new ColumnHeader[] { clipsFileName, clipsDateModified, clipsFileSize });
+            clipsListView.FullRowSelect = true;
+            clipsListView.GridLines = true;
+            clipsListView.Location = new Point(48, 381);
+            clipsListView.Name = "clipsListView";
+            clipsListView.Size = new Size(600, 144);
+            clipsListView.TabIndex = 8;
+            clipsListView.UseCompatibleStateImageBehavior = false;
+            clipsListView.View = View.Details;
             // 
-            // columnHeader6
+            // clipsFileName
             // 
-            columnHeader6.Text = "File Size";
-            columnHeader6.Width = 96;
+            clipsFileName.Text = "File Name";
+            clipsFileName.Width = 300;
             // 
-            // label3
+            // clipsDateModified
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(131, 260);
-            label3.Name = "label3";
-            label3.Size = new Size(41, 20);
-            label3.TabIndex = 9;
-            label3.Text = "Files:";
+            clipsDateModified.Text = "Date Modified";
+            clipsDateModified.Width = 200;
             // 
-            // label4
+            // clipsFileSize
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(131, 535);
-            label4.Name = "label4";
-            label4.Size = new Size(41, 20);
-            label4.TabIndex = 9;
-            label4.Text = "Files:";
+            clipsFileSize.Text = "File Size";
+            clipsFileSize.Width = 96;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(696, 692);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(listView2);
-            Controls.Add(listView1);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(replaysFolderButton);
+            Controls.Add(clipsFolderButton);
+            Controls.Add(refreshReplaysButton);
+            Controls.Add(refreshClipsButton);
+            Controls.Add(saveFileButton);
+            Controls.Add(deleteFileButton);
+            Controls.Add(replaysPathTextBox);
+            Controls.Add(clipsPathTextBox);
+            Controls.Add(replaysCountLabel);
+            Controls.Add(clipsCountLabel);
+            Controls.Add(filesMovedLabel);
+            Controls.Add(filesDeletedLabel);
+            Controls.Add(replaysListView);
+            Controls.Add(clipsListView);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Slippi Clip Collector";
@@ -246,25 +246,25 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private ListView listView1;
-        private ListView listView2;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
+        private Button replaysFolderButton;
+        private Button clipsFolderButton;
+        private Button refreshReplaysButton;
+        private Button refreshClipsButton;
+        private Button saveFileButton;
+        private Button deleteFileButton;
+        private TextBox replaysPathTextBox;
+        private TextBox clipsPathTextBox;
+        private Label replaysCountLabel;
+        private Label clipsCountLabel;
+        private Label filesMovedLabel;
+        private Label filesDeletedLabel;
+        private ListView replaysListView;
+        private ColumnHeader replaysFileName;
+        private ColumnHeader replaysDateModified;
+        private ColumnHeader replaysFileSize;
+        private ListView clipsListView;
+        private ColumnHeader clipsFileName;
+        private ColumnHeader clipsDateModified;
+        private ColumnHeader clipsFileSize;
     }
 }
