@@ -2,8 +2,8 @@ namespace slippi_clip_collector
 {
     public partial class Form1 : Form
     {
-        private string replaysFolderPath;
-        private string clipsFolderPath;
+        private string? replaysFolderPath;
+        private string? clipsFolderPath;
         private int replaysFolderCount;
         private int clipsFolderCount;
         private int savedFilesCount;
@@ -18,22 +18,16 @@ namespace slippi_clip_collector
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
-                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-                {
-                    replaysFolderPath = folderBrowserDialog.SelectedPath;
-                    replaysPathTextBox.Text = replaysFolderPath;
-                }
-                else
+                if (!(folderBrowserDialog.ShowDialog() == DialogResult.OK))
                 {
                     return;
                 }
+
+                replaysFolderPath = folderBrowserDialog.SelectedPath;
+                replaysPathTextBox.Text = replaysFolderPath;
             }
 
-            foreach (ListViewItem item in replaysListView.Items)
-            {
-                replaysListView.Items.Remove(item);
-            }
-
+            ClearListView(replaysListView);
             FillListView(replaysFolderPath, replaysListView);
             replaysFolderCount = NumberOfFiles(replaysFolderPath);
             replaysCountLabel.Text = $"Files: {replaysFolderCount.ToString()}";
@@ -43,22 +37,16 @@ namespace slippi_clip_collector
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
-                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-                {
-                    clipsFolderPath = folderBrowserDialog.SelectedPath;
-                    clipsPathTextBox.Text = clipsFolderPath;
-                }
-                else
+                if (!(folderBrowserDialog.ShowDialog() == DialogResult.OK))
                 {
                     return;
                 }
+
+                clipsFolderPath = folderBrowserDialog.SelectedPath;
+                clipsPathTextBox.Text = clipsFolderPath;
             }
 
-            foreach (ListViewItem item in clipsListView.Items)
-            {
-                clipsListView.Items.Remove(item);
-            }
-
+            ClearListView(clipsListView);
             FillListView(clipsFolderPath, clipsListView);
             clipsFolderCount = NumberOfFiles(clipsFolderPath);
             clipsCountLabel.Text = $"Files: {clipsFolderCount.ToString()}";
@@ -66,7 +54,14 @@ namespace slippi_clip_collector
 
         private void SaveFileButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(replaysFolderPath) || (string.IsNullOrEmpty(clipsFolderPath)))
+            if (string.IsNullOrEmpty(replaysFolderPath) || string.IsNullOrEmpty(clipsFolderPath))
+            {
+                return;
+            }
+
+            replaysFolderCount = NumberOfFiles(replaysFolderPath);
+
+            if (replaysFolderCount == 0)
             {
                 return;
             }
@@ -83,7 +78,14 @@ namespace slippi_clip_collector
 
         private void DeleteFileButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(replaysFolderPath) || (string.IsNullOrEmpty(clipsFolderPath)))
+            if (string.IsNullOrEmpty(replaysFolderPath) || string.IsNullOrEmpty(clipsFolderPath))
+            {
+                return;
+            }
+
+            replaysFolderCount = NumberOfFiles(replaysFolderPath);
+
+            if (replaysFolderCount == 0)
             {
                 return;
             }
@@ -109,48 +111,49 @@ namespace slippi_clip_collector
 
         private void FillListView(string folderPath, ListView listView)
         {
-            if (!string.IsNullOrEmpty(folderPath))
-            {
-                var files = new DirectoryInfo(folderPath).GetFiles()
-                    .OrderByDescending(f => f.LastWriteTime)
-                    .ToList();
-
-                foreach (var file in files)
-                {
-                    long fileSizeBytes = file.Length;
-                    double fileSizeKilobytes = Math.Ceiling(fileSizeBytes / 1024.0);
-
-                    var item = new ListViewItem(file.Name);
-                    item.SubItems.Add(file.LastWriteTime.ToString());
-                    item.SubItems.Add($"{fileSizeKilobytes} KB");
-                    listView.Items.Add(item);
-                }
-            }
-            else
+            if (string.IsNullOrEmpty(folderPath))
             {
                 return;
+            }
+
+            var files = new DirectoryInfo(folderPath).GetFiles("*.slp")
+                .OrderByDescending(f => f.LastWriteTime)
+                .ToList();
+
+            if (files.Count == 0)
+            {
+                return;
+            }
+
+            foreach (var file in files)
+            {
+                long fileSizeBytes = file.Length;
+                double fileSizeKilobytes = Math.Ceiling(fileSizeBytes / 1024.0);
+
+                var item = new ListViewItem(file.Name);
+                item.SubItems.Add(file.LastWriteTime.ToString());
+                item.SubItems.Add($"{fileSizeKilobytes} KB");
+                listView.Items.Add(item);
             }
         }
 
         private int NumberOfFiles(string folderPath)
         {
-            if (!string.IsNullOrEmpty(folderPath))
-            {
-                int numberOfFiles = new DirectoryInfo(folderPath)
-                    .GetFiles().Length;
-
-                return numberOfFiles;
-            }
-            else
+            if (string.IsNullOrEmpty(folderPath))
             {
                 return 0;
             }
+
+            int numberOfFiles = new DirectoryInfo(folderPath)
+                .GetFiles("*.slp").Length;
+
+            return numberOfFiles;
         }
 
         private FileInfo GetMostRecentFile(string folderPath)
         {
             var directory = new DirectoryInfo(folderPath);
-            var mostRecentFile = directory.GetFiles()
+            var mostRecentFile = directory.GetFiles("*.slp")
                 .OrderByDescending(f => f.LastWriteTime)
                 .FirstOrDefault();
 
