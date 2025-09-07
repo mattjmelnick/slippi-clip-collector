@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.FileIO;
+
 namespace slippi_clip_collector
 {
     public partial class Form1 : Form
@@ -92,7 +94,7 @@ namespace slippi_clip_collector
 
             FileInfo mostRecentFile = GetMostRecentFile(replaysFolderPath);
             string deleteFilePath = Path.Combine(replaysFolderPath, mostRecentFile.Name);
-            File.Delete(deleteFilePath);
+            FileSystem.DeleteFile(deleteFilePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
 
             deletedFilesCount++;
             filesDeletedLabel.Text = $"{deletedFilesCount.ToString()} Files Deleted";
